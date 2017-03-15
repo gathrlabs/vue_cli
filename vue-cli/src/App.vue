@@ -1,35 +1,24 @@
 <template>
-    <app-servers></app-servers>
+  <div>
+    <my-header></my-header>
+    <my-server-list></my-server-list>
+    <my-footer></my-footer>
+  </div>
 </template>
 
 <script>
+  import Header from './Header.vue'
+  import Servers from './SeverList.vue'
+  import Footer from './Footer.vue'
+  export default {
+    components: {
+      'my-header': Header,
+      'my-server-list': Servers,
+      'my-footer': Footer
+    }
+  }
 </script>
 
-<style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-
-h1, h2 {
-  font-weight: normal;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
-}
+<style lang="sass">
+  @import "~bulma";
 </style>
