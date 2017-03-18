@@ -1,8 +1,8 @@
 // What makes a good workflow? //
 -> should have a build process that optimizes code, like ES6
 -> A development server
-    .> to allow us to test under realistic circumstances
-    .> don't have to load all files on startup (lazy loading)
+    -> to allow us to test under realistic circumstances
+    -> don't have to load all files on startup (lazy loading)
 -> compiled gives a 30% reduced package size
 
 // Understanding workflow //
@@ -20,7 +20,7 @@ But Vue cli allows us to fetch Project templates
 SO to install?
 
 First run npm command to install globally -> npm install -g vue-cli
-You cnaa choose from a numbner of Project Templates -> vue init webpack-simple [project folder]
+You can choose from a number of Project Templates -> vue init webpack-simple [project folder]
 
 simple            ->    index.html + Vue CDN imported
 webpack-simple    ->    Basic Webpack workflow (what we're using)
@@ -167,3 +167,48 @@ You import it using ES6 terminology. So in <script>
   }
 
   To us a global component, import directly into the main.js file. and render using the Vue.component('nameofcomponent', importnameofcomponent);
+
+  // Structure //
+
+  Its a good idea to structure folders by feature. Maybe a shared folder for header and footer. Or a server folder which holds all of the server information.
+
+  Even better would be to create a folder for components, which then is subdivided by feature.
+
+  For big projects there is another alternative folder structure:
+
+  Instead of heaving components in a components folder and storing and then subdividing. Files might be grouped as follows:
+
+  -main.js
+  -users/
+    --account/
+    --analytics/
+  -shop/
+    --main/
+    --checkout/
+
+  So here we are subdividing the site into its various functions. The shop function, the user management function, with then features that sit below that.
+
+  // Naming the Components //
+
+  You can use case selective Selectors
+  for example
+  'appHeader': Header,
+
+  BUT its pretty common to use the "-" like "app-server" because HTML is used to having lowercase separated by a "-"
+
+  // Styles and components //
+
+  A style added to any component will become a global style.
+  If this is not the functionality that is required then you just need to add the "scoped" tag
+  so
+  <style scoped>
+    div {
+      border: 1px solid blue;
+    }
+  </style>
+
+  Also important to note is how vuejs actually applies the style to the global dom. In fact, it is not being applied to the global dom, it is actually being applied to a shadow dom.
+
+  When looking at the html generted in the developer tools, we can see that scoped styles are actually add to the head of the document and assigned data tags. These tags are then applied to the particular component div using the data property. This allows components to have dynamic styling.
+
+  

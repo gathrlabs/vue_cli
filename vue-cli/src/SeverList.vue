@@ -39,5 +39,10 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style lang="css" scoped>
+
+  .box {
+    this is weherer we will have to put the box shadow. This is where it will sit for the next time, but I wonder if it will work.
+  }
+
 </style>
