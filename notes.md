@@ -366,4 +366,23 @@ THis is also the place where you can set up tasks or methods that can be used ac
 
 export const eventBus = new Vue();
 
-import { evenBus } from '../main.js'
+import { eventBus } from '../main.js'
+
+then in the method emit an event ageWasEdited when the editAge() is called.
+
+editAge() {
+  this.userAge = 30;
+  eventBus.$emit('ageWasEdited', this.userAge);
+  //so now the same data is rendered, but it is emitted to a completely sperarate instance. Making it independent.
+}
+
+create this on the UserDetail component:
+
+make sure the eventBus is imported
+
+created() {
+  eventBus.$on('ageWasEdited', (age) => {
+    this.userAge = age;
+  });
+  //Using ES6 syntax here. SO we calla ageWasEdited and we get some data which we can call using the es6
+}
