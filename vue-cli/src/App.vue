@@ -1,44 +1,35 @@
 <template>
-  <section class="hero is-primary is-medium">
-    <div class="hero-body">
-      <div class="container">
-        <a @click="selectedComponent='app-quotes'" class="button is-dark">Quote</a>
-        <a @click="selectedComponent='app-author'" class="button is-dark">Author</a>
-        <a @click="selectedComponent='app-new'" class="button is-dark">New</a>
-        <hr />
-        <p>
-          {{ selectedComponent }}
-        </p>
-        <keep-alive>
-          <component :is="selectedComponent"></component>
-        </keep-alive>
-        <!-- <app-quotes>
-          <h1 slot="title" class="title">{{ quoteTitle }}</h1>
-            <h2 slot="content" class="subtitle">
-              -Author
-            </h2>
-        </app-quotes> -->
-      </div>
+  <section class="section">
+    <div class="container">
+      <a @click="selectedColor='app-blue'" class="button is-info">Blue</a>
+      <a @click="selectedColor='app-green'" class="button is-success">Green</a>
+      <a @click="selectedColor='app-red'" class="button is-danger">Red</a>
+      <hr />
+      <keep-alive>
+        <component :is="selectedColor">
+          <p>THis is the content</p>
+        </component>
+      </keep-alive>
     </div>
   </section>
 </template>
 
 <script>
-  import Quotes from './components/Quote.vue';
-  import Author from './components/Author.vue';
-  import New from './components/New.vue'
+  import Blue from './components/Blue.vue';
+  import Green from './components/Green.vue';
+  import Red from './components/Red.vue';
+
   export default {
     data: function() {
       return {
-        quoteTitle: 'A wonderful quote',
-        selectedComponent: 'app-quotes'
-
+        color: 'This is my color',
+        selectedColor: 'app-blue'
       }
     },
     components : {
-      'app-quotes': Quotes,
-      'app-author': Author,
-      'app-new': New
+      'app-blue': Blue,
+      'app-green': Green,
+      'app-red': Red
     }
   }
 </script>
