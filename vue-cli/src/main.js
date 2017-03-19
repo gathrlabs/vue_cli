@@ -1,13 +1,7 @@
 import Vue  from 'vue'
 import App  from './App.vue'
 
-export const eventBus = new Vue({
-  methods: {
-    viewServer() {
-      
-    }
-  }
-});
+export const serverBus = new Vue();
 
 new Vue({
   el: '#app',

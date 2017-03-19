@@ -1,16 +1,14 @@
 <template>
-    <div class="container">
+    <div class="page">
         <app-header></app-header>
-        <hr>
           <div class="section">
             <div class="container">
               <div class="columns">
                 <servers></servers>
-              <app-server-details></app-server-details>
+                <app-server-details></app-server-details>
             </div>
           </div>
         </div>
-        <hr>
         <app-footer></app-footer>
     </div>
 </template>
