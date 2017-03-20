@@ -7,7 +7,6 @@
       <hr />
       <keep-alive>
         <component :is="selectedColor">
-          <p>THis is the content</p>
         </component>
       </keep-alive>
     </div>
@@ -22,7 +21,6 @@
   export default {
     data: function() {
       return {
-        color: 'This is my color',
         selectedColor: 'app-blue'
       }
     },
