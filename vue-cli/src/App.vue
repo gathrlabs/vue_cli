@@ -36,7 +36,7 @@
   <p class="control">
     <label class="checkbox">
       <input type="checkbox" value="emailCopy" v-model="communication">
-      Send me a copy of the email
+     copy of the email
     </label>
   </p>
 </div>
